@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE configuration
+	PUBLIC "-//mybatis.org/DTD Config 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<!-- 기존에는 settings -null값 / 별칭 설정 / mapper클래스 등록 / DB설정 스르핑에서는 settings 
+		-null값 / 별칭 설정 까지만 -->
+	<settings>
+		<setting name="jdbcTypeForNull" value="NULL"/>
+	</settings>
+	
+	<typeAliases>
+		<typeAlias type="enclab.com.board.member.MemberDTO" alias="MemberDTO" />
+		<typeAlias type="enclab.com.board.member.BoardDTO" alias="BoardDTO" />
+		
+	</typeAliases>
+
+</configuration>

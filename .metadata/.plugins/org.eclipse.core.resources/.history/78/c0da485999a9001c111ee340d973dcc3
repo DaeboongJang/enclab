@@ -1,0 +1,11 @@
+package enclab.com.board.board;
+
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class BoardDAO {
+	
+	public BoardDAO() {
+		System.out.println("BoardDAO 인스턴스 생성");
+	}
+}

@@ -1,0 +1,21 @@
+package enclab.com.board.board;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class BoardService {
+
+	public BoardService() {
+		System.out.println("BoardService 인스턴스 생성");
+	}
+	
+	@Autowired
+	private BoardDAO dao;
+	
+	public List<BoardDTO> getBoardList() {
+		return dao.getBoardList();
+	}
+}

@@ -1,0 +1,36 @@
+package enclab.com.board.board;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class BoardService {
+
+	public BoardService() {
+		System.out.println("BoardService 인스턴스 생성");
+	}
+
+	@Autowired
+	private BoardDAO dao;
+
+	private int recordCntPerPage = 10;
+	private int naviCntPerPage = 10;
+
+	// 전체 게시판 조회
+	public List<BoardDTO> selectAll(int currentPage) throws Exception {
+		int startRange = currentPage * recordCntPerPage - (recordCntPerPage - 1);
+		int endRange = currentPage * recordCntPerPage;
+
+		// 전체 게시판 조회
+		List<BoardDTO> list = dao.selectAll(startRange, endRange);
+
+		return list;
+	}
+
+	// 전체 게시판 게시글 갯수
+	public int selectAllBoardCount() throws Exception {
+		return dao.selectAllBoardCount();
+	}
+}

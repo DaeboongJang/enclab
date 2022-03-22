@@ -1,0 +1,5 @@
+package enclab.com.board.board;
+
+public class BoardDTO {
+
+}

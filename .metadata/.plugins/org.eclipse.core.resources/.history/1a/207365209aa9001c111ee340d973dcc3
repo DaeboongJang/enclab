@@ -1,0 +1,41 @@
+package enclab.com.board.board;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import enclab.com.board.member.MemberDTO;
+
+@Controller
+@RequestMapping("/board")
+public class BoardController {
+
+	@Autowired
+	private BoardService service;
+
+	@Autowired
+	private HttpSession session;
+
+	@Autowired
+	private MemberDTO dto;
+
+	public BoardController() {
+		System.out.println("BoardController 인스턴스 생성");
+	}
+
+	@RequestMapping("/toBoard")
+	public String toBoard(Model model) throws Exception {
+		String id = ((MemberDTO) session.getAttribute("loginSesseion")).getId();
+		System.out.println("로그인한 ID " + id);
+
+		// 자유게시판 게시글 총 갯수
+		int recordTotalCnt = service.selectAllBoardCount();
+
+		service.getBoardList();
+
+		return "board/boardList";
+	}
+}

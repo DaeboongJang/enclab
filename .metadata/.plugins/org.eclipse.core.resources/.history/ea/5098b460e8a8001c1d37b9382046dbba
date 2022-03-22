@@ -1,0 +1,15 @@
+package enclab.com.board.member;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class MemberService {
+	
+	public MemberService() {
+		System.out.println("MemberService 도착");
+	}
+	
+	@Autowired
+	private MemberDAO dao;
+}

@@ -1,0 +1,28 @@
+package enclab.com.board.board;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class BoardDAO {
+	
+	
+	@Autowired
+	private SqlSession session;
+	
+	public BoardDAO() {
+		System.out.println("BoardDAO 인스턴스 생성");
+	}
+	
+	public List<BoardDTO> getBoardList() throws Exception {
+		List<BoardDTO> list = new ArrayList<>();
+		HashMap<Object, Object> map = new HashMap<>();
+		map.put("list", list);
+		return session.selectList("boardMapper.getBoardList");
+	}
+}

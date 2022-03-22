@@ -1,0 +1,5 @@
+package enclab.com.board.member;
+
+public class MemberService {
+
+}

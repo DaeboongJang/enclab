@@ -1,0 +1,20 @@
+package enclab.com.board.member;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class MemberService {
+	
+	@Autowired
+	private MemberDAO dao;
+	
+	public MemberService() {
+		System.out.println("MemberService 도착");
+	}
+	
+	// 아이디 중복 확인
+	public String checkId(String id) throws Exception { 
+		return dao.checkId(id);
+	}
+}

@@ -1,0 +1,11 @@
+package enclab.com.board.member;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class MemberController {
+	
+	public MemberController() {
+		System.out.println("MemberController 도착");
+	}
+}
